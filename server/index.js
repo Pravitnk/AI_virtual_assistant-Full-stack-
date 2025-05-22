@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+import connectToDb from "./config/db.js";
 
 const app = express();
 dotenv.config();
+connectToDb();
 const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
@@ -10,5 +12,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("app runing on port ", PORT);
+  console.log("server runing on port", PORT);
 });
