@@ -4,7 +4,6 @@ import connectToDb from "./config/db.js";
 
 const app = express();
 dotenv.config();
-connectToDb();
 const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
@@ -12,5 +11,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
+  connectToDb();
   console.log("server runing on port", PORT);
 });
